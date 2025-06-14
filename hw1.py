@@ -34,8 +34,22 @@ class Paddle:
             self.canvas.delete(self.rectangle)
             self.rectangle = self.canvas.create_rectangle(self.x, self.y1, self.x + 10, self.y2, fill=self.color)
 
+class Ball:
+    def __init__(self,canvas,p1,p2,color):
+        self.canvas = canvas
+        self.p1 = p1
+        self.p2 = p2
+        self.color = color
+        self.x = 335
+        self.y = 250
+        self.radius = canvas.create_oval(335-20,250-20,335+20,250+20, fill=self.color)
+
+
 lpaddle = Paddle(canvas, 30, "orange")
 rpaddle = Paddle(canvas, 640, "light green")
+ball = Ball(canvas,lpaddle,rpaddle,"blue")      
+
+
 
 def key_pressed(event):
     key = event.keysym
